@@ -1,0 +1,42 @@
+﻿@model EMRS.Models.MedicalRecord
+
+@{
+    ViewBag.Title = "Medical Record Details";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                @if (User.IsInRole("AttendingPhysician"))
+                {
+                <h1>@Html.DisplayNameFor(model => model.Patient) : @Html.DisplayFor(model => model.Patient.Name)</h1>
+                }
+                else if (User.IsInRole("Patient"))
+                {
+                <h1>@Html.DisplayNameFor(model => model.Physician) : @Html.DisplayFor(model => model.Physician.Name)</h1>
+                }
+                
+                <h2>@Html.DisplayFor(model => model.CreatedTime)</h2>
+            </hgroup>
+            <p>
+                @Html.DisplayFor(model => model.Comment)
+            </p>
+        </div>
+    </section>
+}
+<ol class="round">
+    @foreach (var item in Model.TreatmentRecords) {
+    <li class="none">
+        <h5>@Html.DisplayFor(modelItem => item.CreatedTime)</h5>
+        @Html.DisplayFor(modelItem => item.Description)
+    </li>
+    }
+</ol>
+<p>
+    @if (User.IsInRole("AttendingPhysician") && !Model.IsFinished)
+    {
+    @Html.ActionLink("Attach Medical Record", "Attach", new { id= Model.MedicalRecordID })
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

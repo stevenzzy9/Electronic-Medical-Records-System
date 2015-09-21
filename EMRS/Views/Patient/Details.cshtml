@@ -1,0 +1,131 @@
+﻿@model EMRS.Models.Patient
+
+@{
+    ViewBag.Title = "Patient Details";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>Patient</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SSN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SSN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BirthDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BirthDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gender)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMCName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMCName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMCAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMCAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMCEmail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMCEmail)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMCPhone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMCPhone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InsurancePolicyNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InsurancePolicyNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InsuranceExpiryDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InsuranceExpiryDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InsuranceCompany)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InsuranceCompany.CompanyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InsurancePolicy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InsurancePolicy.PolicyName)
+    </div>
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model EMRS.Models.EditPatientModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+
+<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+
+<h3>Edit Personal Information</h3>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Patient</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMCName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMCName)
+            @Html.ValidationMessageFor(model => model.EMCName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMCAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMCAddress)
+            @Html.ValidationMessageFor(model => model.EMCAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMCEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMCEmail)
+            @Html.ValidationMessageFor(model => model.EMCEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMCPhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMCPhone)
+            @Html.ValidationMessageFor(model => model.EMCPhone)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

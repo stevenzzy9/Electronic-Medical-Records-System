@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - EMRS</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("Electronic Medical Records System", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        @if (User.IsInRole("Patient"))
+                        {
+                            <li>@Html.ActionLink("Medical Record", "Index", "Medical")</li>
+                            <li>@Html.ActionLink("Personal Information", "Edit", "Account")</li>
+                        }
+                        else if (User.IsInRole("AssistantDoctor"))
+                        {
+                            <li>@Html.ActionLink("Patient", "Index", "Patient")</li>
+                        }
+                        else if (User.IsInRole("AttendingPhysician"))
+                        {
+                            <li>@Html.ActionLink("Medical Record", "Index", "Medical")</li>
+                        }
+                        else if (User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Physician", "Index", "Physician")</li>
+                            <li>@Html.ActionLink("Department", "Index", "Department")</li>
+                            <li>@Html.ActionLink("Insurance Company", "Index", "InsuranceCompany")</li>
+                            <li>@Html.ActionLink("Insurance Policy", "Index", "InsurancePolicy")</li>
+                        }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - EMRS</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

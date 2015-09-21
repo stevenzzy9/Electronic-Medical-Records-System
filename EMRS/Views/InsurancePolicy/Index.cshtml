@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EMRS.Models.InsurancePolicy>
+
+@{
+    ViewBag.Title = "Insurance Policy";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InsurancePolicyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InsurancePolicyID })
+        </td>
+    </tr>
+}
+
+</table>

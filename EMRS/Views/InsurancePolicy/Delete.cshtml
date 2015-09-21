@@ -1,0 +1,48 @@
+﻿@model EMRS.Models.InsurancePolicy
+
+@{
+    ViewBag.Title = "Delete Insurance Policy";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>InsurancePolicy</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

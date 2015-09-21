@@ -1,0 +1,38 @@
+﻿@model EMRS.Models.InsuranceCompany
+
+@{
+    ViewBag.Title = "Insurance Company Details";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>InsuranceCompany</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ContactInfo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactInfo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.InsuranceCompanyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

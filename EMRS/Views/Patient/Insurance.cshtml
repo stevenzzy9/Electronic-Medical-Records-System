@@ -1,0 +1,71 @@
+﻿@model EMRS.Models.EditPatientInsuranceModel
+
+@{
+    ViewBag.Title = "Edit Patient Insurance Information";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Patient</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PatientName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PatientName, new { @readonly="readonly", @disabled="true" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InsuranceCompanyID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.InsuranceCompanyID, Model.InsuranceCompanies)
+            @Html.ValidationMessageFor(model => model.InsuranceCompanyID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InsurancePolicyID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.InsurancePolicyID, Model.InsurancePolicies)
+            @Html.ValidationMessageFor(model => model.InsurancePolicyID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InsurancePolicyNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InsurancePolicyNumber)
+            @Html.ValidationMessageFor(model => model.InsurancePolicyNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InsuranceExpiryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InsuranceExpiryDate)
+            @Html.ValidationMessageFor(model => model.InsuranceExpiryDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,34 @@
+﻿@model EMRS.Models.LoginModel
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Welcome</h1>
+                <h2>You're logged in as <strong>@User.Identity.Name</strong>.</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<h3>UWL—Mayo Clinic</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Patient care</h5>
+        Mayo Clinic offers highly specialized medical care, and a large portion of the patient population are referrals from smaller clinics and hospitals from across the upper Midwest and the United States as a whole.
+    </li>
+
+    <li class="two">
+        <h5>Research</h5>
+        Mayo Clinic researchers contribute to the understanding of disease processes, best clinical practices, and translation of findings from the laboratory to the clinical practice. Nearly 400 doctoral level physicians and research scientists are employed, with an additional 2,800 allied health personnel and students with appointments in research.
+    </li>
+
+    <li class="three">
+        <h5>Education</h5>
+        Drs. William and Charles Mayo were proponents of education since very early in the history of Mayo Clinic. In 1972, Mayo Clinic opened the doors of its own medical school (Mayo Medical School) in Rochester, which is known for its contributions the medical field.
+    </li>
+</ol>

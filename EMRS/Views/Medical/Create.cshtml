@@ -1,0 +1,54 @@
+﻿@model EMRS.Models.CreateMedicalRecordModel
+
+@{
+    ViewBag.Title = "Assign Doctor";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MedicalRecord</legend>
+        
+        @Html.HiddenFor(model => model.PatientID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PatientName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PatientName, new { @readonly="readonly", @disabled="true" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhysicianID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.PhysicianID, Model.Physicians)
+            @Html.ValidationMessageFor(model => model.PhysicianID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Comment)
+            @Html.ValidationMessageFor(model => model.Comment)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Patient")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EMRS.Models.InsuranceCompany>
+
+@{
+    ViewBag.Title = "Insurance Company";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InsuranceCompanyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InsuranceCompanyID })
+        </td>
+    </tr>
+}
+
+</table>

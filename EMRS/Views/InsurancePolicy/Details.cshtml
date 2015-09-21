@@ -1,0 +1,45 @@
+﻿@model EMRS.Models.InsurancePolicy
+
+@{
+    ViewBag.Title = "Insurance Policy Details";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<fieldset>
+    <legend>InsurancePolicy</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PolicyType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PolicyType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.InsurancePolicyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

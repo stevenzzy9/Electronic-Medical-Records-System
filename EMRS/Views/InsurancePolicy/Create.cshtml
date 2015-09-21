@@ -1,0 +1,61 @@
+﻿@model EMRS.Models.InsurancePolicy
+
+@{
+    ViewBag.Title = "Create Insurance Policy";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InsurancePolicy</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PolicyName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PolicyName)
+            @Html.ValidationMessageFor(model => model.PolicyName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PolicyNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PolicyNumber)
+            @Html.ValidationMessageFor(model => model.PolicyNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PolicyType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.PolicyType, new SelectList(Enum.GetValues(typeof(EMRS.Models.PolicyType))))
+            @Html.ValidationMessageFor(model => model.PolicyType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
